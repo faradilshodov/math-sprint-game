@@ -121,7 +121,6 @@ function scoresToDOM() {
 
 // Stop Timer, Process Results, go to Score Page
 function checkTime() {
-  console.log(timePlayed);
   if (playerGuessArray.length == questionAmount) {
     clearInterval(timer);
     // Check for wrong guess, add penaltyTime
@@ -134,7 +133,6 @@ function checkTime() {
       }
     });
     finalTime = timePlayed + penaltyTime;
-    console.log('time:', timePlayed, 'penalty:', penaltyTime, 'final:', finalTime);
     scoresToDOM();
   }
 }
@@ -179,10 +177,8 @@ function getRandomInt(max) {
 function createEquations() {
   // Randomly choose how many correct equations there should be
   const correctEquations = getRandomInt(questionAmount);
-  console.log('correct equations:', correctEquations);
   // Set amount of wrong equations
   const wrongEquations = questionAmount - correctEquations;
-  console.log('wrong equations:', wrongEquations);
   // Loop through for each correct equation, multiply random numbers up to 9, push to array
   for (let i = 0; i < correctEquations; i++) {
     firstNumber = getRandomInt(9);
@@ -284,7 +280,6 @@ function getRadioValue() {
 function selectQuestionAmount(e) {
   e.preventDefault();
   questionAmount = getRadioValue();
-  console.log('question amount:', questionAmount);
   if (questionAmount) {
       showCountdown();
   }
